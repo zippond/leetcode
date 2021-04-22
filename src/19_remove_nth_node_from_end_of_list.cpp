@@ -8,7 +8,7 @@
  */
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
+    ListNode* removeNthFromEnd1(ListNode* head, int n) {
         ListNode dummy(0);
         dummy.next = head;
         ListNode * first = &dummy;
@@ -29,5 +29,29 @@ public:
         }
         return dummy.next;
         
+    }
+    ListNode* removeNthFromEnd(ListNode* head, int n)
+    {
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode *p1 = &dummy;
+        ListNode *p2 = &dummy;
+        for(int i = 0; i <= n; i++) // p1 需要比 p2快 n+1步！
+        {
+            if(p1)
+            {
+                p1 = p1->next;
+            }
+        }
+        while(p1)
+        {
+            p1 = p1->next;
+            p2 = p2->next;
+        }
+        if(p2->next)
+        {
+            p2->next = p2->next->next;
+        }
+        return dummy.next;
     }
 };
