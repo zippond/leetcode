@@ -18,16 +18,17 @@ public:
     ListNode *mergeKLists(vector<ListNode *> &lists)
     {
         if(lists.size() == 0) return nullptr;
-        mergeKListsRec(lists, 0, lists.size());
-        return lists[0];
+        return mergeKListsRec(lists, 0, lists.size());
     }
 
     ListNode * mergeKListsRec(vector<ListNode *> &lists, int start, int end)
     {
         if((end - start) == 1) { return lists[start];}
         int mid = start + (end - start)/2;
+        //cout<<"0Start "<<start<<" Mid "<<mid<<" End "<<end<<endl;
         ListNode * l = mergeKListsRec(lists, start, mid);
         ListNode * r = mergeKListsRec(lists, mid, end);
+        //cout<<"Start "<<start<<" Mid "<<mid<<" End "<<end<<endl;
         return merge2Lists(l, r);
     }
     ListNode * mergeKlistsLoop(vector<ListNode *> &lists)
