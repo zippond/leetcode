@@ -22,16 +22,13 @@ public:
         return lists[0];
     }
 
-    void mergeKListsRec(vector<ListNode *> &lists, int start, int end)
+    ListNode * mergeKListsRec(vector<ListNode *> &lists, int start, int end)
     {
-        if((end - start) == 1) { return;}
-        if((end - start) == 2) 
-        {
-            lists[start] = merge2Lists(lists[start], lists[end-1]);
-        }
+        if((end - start) == 1) { return lists[start];}
         int mid = start + (end - start)/2;
-        mergeKListsRec(lists, start, mid);
-        mergeKListsRec(lists, mid, end);
+        ListNode * l = mergeKListsRec(lists, start, mid);
+        ListNode * r = mergeKListsRec(lists, mid, end);
+        return merge2Lists(l, r);
     }
     ListNode * mergeKlistsLoop(vector<ListNode *> &lists)
     {
