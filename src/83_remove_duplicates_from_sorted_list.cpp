@@ -3,27 +3,47 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        ListNode * p = head;
-        if(head)
+        if(!head || !head->next) return head;
+        ListNode * cur = head;
+        while(cur->next)
         {
-            while(head->next)
+            if(cur->val == cur->next->val)
             {
-                if(head->val == head->next->val)
-                {
-                    head->next = head->next->next;
-                }
-                else
-                head = head->next;
+                cur->next = cur->next->next;
+            }
+            else
+            {
+                cur = cur->next;
             }
         }
-
-        return p;
-
+        return head;
+    }
+    ListNode* deleteDuplicatesUgly(ListNode* head) {
+        if(!head || !head->next) return head;
+        ListNode * cur = head;
+        ListNode * next = head->next;
+        while(next)
+        {
+            if(cur->val == next->val)
+            {
+                next = next->next;
+            }
+            else
+            {
+                cur->next = next;
+                cur = cur->next;
+                next = next->next;
+            }
+        }
+        cur->next = nullptr;
+        return head;
     }
 };
