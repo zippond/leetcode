@@ -42,7 +42,7 @@ public:
         if(!head || !head->next) return true;
         ListNode *mid = getMid(head);
         ListNode *secondHalf = reverseList2(mid);
-        while(secondHalf)
+        while(secondHalf) // 虽然翻转了，但中点前的节点依旧指向旧的中点！！！
         {
             if(head->val == secondHalf->val)
             {
