@@ -7,6 +7,7 @@
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
+ * 82, 83区别：如果保留第一个重复的，则头节点不会变，不需要dummy；否则，头节点会变，需创建dummy，并且需要pre节点跳过所有重复的。
  */
 class Solution {
 public:
