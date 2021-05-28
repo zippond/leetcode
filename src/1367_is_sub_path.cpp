@@ -36,7 +36,7 @@ public:
         if(!root) return false;
         return dfs(head, root)||isSubPath(head, root->left)||isSubPath(head, root->right);
     }
-    bool dfs(ListNode *head, TreeNode *root)
+    bool dfs(ListNode *head, TreeNode *root) // 找连续的！
     {
         if(!head) return true;
         if(!root) return false;
