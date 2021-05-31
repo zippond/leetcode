@@ -13,7 +13,7 @@ class Solution {
 public:
     vector<TreeNode*> generateTrees(int s, int e) {
         vector<TreeNode *> ret;
-        if(s>e) return {nullptr};
+        if(s>e) return {nullptr};   // 注意，返回包含空节点的数组！
         vector<TreeNode*> left, right;
         for(int i = s; i <= e; i++ )
         {
@@ -21,11 +21,8 @@ public:
             right = generateTrees(i+1, e);
             for(auto l:left)
             {
-                cout<<"Loop L"<<endl;
                 for(auto r: right)
                 {
-                    cout<<"Loop R"<<endl;
-                    cout<<"i="<<i<<endl;
                     TreeNode *n = new TreeNode(i);
                     n->left = l;
                     n->right = r;
