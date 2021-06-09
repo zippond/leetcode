@@ -32,21 +32,21 @@ public:
                 sp.push(p);
                 if(q)
                 {
-                    if(p->val != q->val)
+                    if(p->val != q->val) // 1. 如果 值不同，不一样。
                     {
                         return false;
                     }
                     sq.push(q);
                     q = q->left;
                 }
-                else
+                else    // 2. 如果 q 为空，不一样
                 {
                     return false;
                 }
                 p = p->left;
 
             } // p 左下到底
-            if(q) // 如果q不为空， 不一样。
+            if(q) // 3. 如果q不为空， 不一样。
             //if(q||(q&&q->left)) // 如果q 还有左子节点，不一样
             {
                 return false;
@@ -56,10 +56,10 @@ public:
             TreeNode * qt = sq.top();
             sp.pop();
             sq.pop();
-            if(pt->val != qt->val) return false;
+            if(pt->val != qt->val) return false; // 4. 重复，或者短路
             p = pt->right;
             q = qt->right;
-            if((p == nullptr)^(q == nullptr)) return false;
+            if((p == nullptr)^(q == nullptr)) return false;  // 5. 右子树不同
         }
         return sp.empty()&&sq.empty();
     }
