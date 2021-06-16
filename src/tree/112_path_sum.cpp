@@ -12,7 +12,7 @@
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-        if(!root) return false;
+        if(!root) return false; // 父节点只有一个子节点，当前路径走到尽头，直接返回false
         if(!root->left && !root->right) return targetSum == root->val; // 终止条件: 到达叶节点
         int newSum = targetSum - root->val;
         return hasPathSum(root->left, newSum)||hasPathSum(root->right, newSum);
