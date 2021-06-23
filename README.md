@@ -8,3 +8,7 @@
 1171 - remove 0 sum nodes. 前缀和问题。注意，单次扫描未完成。
 
 124 - Max Path Sum. 路径从任意节点开始。 注意，关键在于maxGain() 函数
+
+145 - Post order. 注意，当前使用了 pair<TreeNode *, bool>. 尝试采用另一种迭代。
+
+offer_38 - All permutations. 当前使用了回溯，注意去重条件。尝试使用next_permutation。
