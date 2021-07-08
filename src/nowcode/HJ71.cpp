@@ -108,7 +108,7 @@ bool match(const string& p, const string& q)
             else if(pc == '*')
             {
                 if(ischar(qc))
-                    dp[i][j] = dp[i-1][j] || dp[i-1][j-1]||dp[i][j-1];
+                    dp[i][j] = dp[i-1][j]/* * 匹配 0 个 */  || dp[i-1][j-1] /* * 匹配 第一个(当前) */ ||dp[i][j-1] /* * 已经匹配到了之前的字符，继续匹配 */;
             }
             else if( pc == qc)
             {
