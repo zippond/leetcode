@@ -54,10 +54,10 @@ int main(int argc, char **argv)
         vector<string> v = getLongestDigitSeq(input);
         for (int i = 0; i < v.size(); i++)
         {
-            cout << v[i] << ",";
+            cout << v[i];
         }
         if (v.size())
-            cout << v[0].size() << endl;
+            cout <<","<< v[0].size() << endl;
         ;
     }
     return 0;

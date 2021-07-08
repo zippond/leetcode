@@ -5,6 +5,7 @@
 */
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -23,16 +24,25 @@ int calc2(int m, int n)
     {
         for(int j = 2; j<=n; j++)
         {
-
+            dp[i][j] = dp[i][j-1] + ((i < j)?0:dp[i-j][j]);
         }
     }
+    for(int i = 0; i <= m; i++)
+    {
+        for(int j = 0; j <= n; j++)
+        {
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return dp[m][n];
 }
 int main(int argc, char **argv)
 {
     int m, n;
     while(cin>>m>>n)
     {
-        cout<<calc(m, n)<<endl;
+        cout<<calc2(m, n)<<endl;
     }
     return 0;
 }

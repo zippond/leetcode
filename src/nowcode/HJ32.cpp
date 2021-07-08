@@ -20,18 +20,17 @@ int getLongest(const string& s)
     int i = 0, j = 0;
     for(int i = 0; i < s.size(); i++)
     {
-        m = max(getLongest(s, i, i)); // 奇数对称
-        m = max(getLongest(s, i, i+1)); // 偶数对称
+        m = max(getLongest(s, i, i), m); // 奇数对称
+        m = max(getLongest(s, i, i+1), m); // 偶数对称
     }
     return m;
 }
 int main(int argc, char **argv)
 {
     string input;
-    do{
-        getline(cin, input);
+    while(getline(cin, input))
+    {
         cout<<getLongest(input)<<endl;
     }
-    while(input.size());
     return 0;
 }

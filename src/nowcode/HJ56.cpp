@@ -4,7 +4,16 @@ using namespace std;
 
 bool check(int n)
 {
-    int sum = 0;
+    int sum = 1;
+    int m = n;
+    for(int i = 2; i <= m/2; i++)
+    {
+        if(( n % i ) == 0)
+        {
+            sum += i;
+        }
+    }
+    return sum == m;
 }
 
 int main(int argc, char **argv)

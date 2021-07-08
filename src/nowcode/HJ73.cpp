@@ -18,7 +18,7 @@ int getDays(int y, int m, int d)
     {
         monthdays[i] = monthdays[i-1] + monthdays[i];
     }
-    int days = monthdays[m-2] + d;
+    int days = monthdays[m-1] + d;
     if(isLeapYear(y)&&(m > 2))
     {
         days += 1;

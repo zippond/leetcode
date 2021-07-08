@@ -22,3 +22,49 @@
 12
 
 */
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+void count(const string& s, int &cs, int &ss, int &ds, int &other)
+{
+    cs = 0;
+    ss = 0;
+    ds = 0;
+    other = 0;
+    for(int i = 0; i < s.size(); i++)
+    {
+        char c = s[i];
+        if( c == ' ')
+        {
+            ss++;
+        }
+        else if ((c >= '0') && (c <= '9'))
+        {
+            ds++;
+        }
+        else if(((c>='a')&&(c<= 'z'))||((c>='A'))&&(c <= 'Z'))
+        {
+            cs++;
+        }
+        else
+        {
+            other++;
+        }
+    }
+}
+int main(int argc, char **argv)
+{
+    string input;
+    while(getline(cin, input))
+    {
+        int chars, spaces, digits, other;
+        count(input, chars, spaces, digits, other);
+        cout<<chars<<endl<<spaces<<endl<<digits<<endl<<other<<endl;
+    }
+
+    return 0;
+}
