@@ -3,6 +3,13 @@
 
 using namespace std;
 
+/*
+    蛇形矩阵。
+    对角线填法。
+    下标 和 s(i+j) 从0 到 n-1;
+    j = 从0到s;
+    i = 从s到0;
+*/
 int main(int argc, char ** argv)
 {
     int n;
