@@ -58,6 +58,7 @@ int main(int argc, char ** argv)
             if(n%2) vodd.push_back(n);
             else veven.push_back(n);
         }
+        /*
         memset(prime_pair, 0, sizeof(prime_pair));
         for(int i = 0; i < veven.size();i++)
         {
@@ -70,6 +71,7 @@ int main(int argc, char ** argv)
                 }
             }
         }
+        */
         vector<int> odd_matched(vodd.size());
         int count = 0;
         for(int i = 0; i < veven.size();i++)
