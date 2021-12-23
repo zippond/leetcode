@@ -16,14 +16,14 @@ int main(int argc, char **argv)
             {
                 count++;
             }
-            else
+            if(var > 0)
             {
                 pcount++;
                 sum += var;
             }
         }
         if(!pcount) pcount = 1;
-        cout<<count<<" "<<sum*1.0/pcount<<endl;
+        printf("%d %.1f\n", count, sum*1.0/pcount);
     }
     return 0;
 }
